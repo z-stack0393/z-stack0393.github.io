@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MAYI — Landing</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent: rgba(46, 204, 255, 0.95);
+      --glass: rgba(10,12,16,0.55);
+      --text: #EAF6FF;
+      --muted: rgba(234,246,255,0.8);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
+
+    /* 全屏背景大图 */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=80');
+      background-size:cover; /* 整屏展示 */
+      background-position:center center;
+      background-repeat:no-repeat;
+      position:relative;
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow:hidden;
+    }
+
+    /* 半透明叠加层，增强可读性并制造科技感 */
+    .overlay{
+      position:absolute;inset:0;background:linear-gradient(180deg, rgba(2,6,23,0.25) 0%, rgba(2,6,23,0.45) 60%);
+      pointer-events:none;
+    }
+
+    /* 左上角品牌 */
+    .brand{
+      position:fixed;left:24px;top:24px;z-index:30;
+      font-weight:800;letter-spacing:1px;font-size:20px;color:var(--accent);
+      background:linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      padding:8px 12px;border-radius:10px;backdrop-filter:blur(6px);
+      box-shadow:0 6px 18px rgba(2,6,23,0.45);
+    }
+
+    /* 底部联系方式 */
+    .contact{
+      z-index:30; width:100%; padding:18px 22px; display:flex;justify-content:center;align-items:center;
+    }
+    .contact .card{
+      max-width:980px;width:100%;background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.2));
+      border-radius:14px;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;
+      color:var(--muted);backdrop-filter:blur(6px);box-shadow:0 8px 30px rgba(2,6,23,0.5);
+      border:1px solid rgba(255,255,255,0.04);
+    }
+    .contact .left{display:flex;flex-direction:column}
+    .contact .label{font-size:12px;text-transform:uppercase;opacity:0.9}
+    .contact .value{font-size:16px;font-weight:600;color:var(--text)}
+    .contact a{color:var(--accent);text-decoration:none;font-weight:700}
+
+    /* 小屏调整 */
+    @media (max-width:640px){
+      .brand{left:14px;top:14px;font-size:16px;padding:6px 10px}
+      .contact .card{padding:12px;flex-direction:column;align-items:flex-start}
+    }
+
+    /* 轻微动态粒子效果（纯 CSS） */
+    .glow{
+      position:absolute;right:-10%;top:-10%;width:40vw;height:40vw;filter:blur(60px);opacity:0.25;transform:translateZ(0);
+      background:radial-gradient(circle at 30% 30%, rgba(46,204,255,0.6), transparent 30%), radial-gradient(circle at 70% 70%, rgba(126,58,255,0.45), transparent 30%);
+      animation:float 8s ease-in-out infinite;
+      z-index:10;
+    }
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(12px)}100%{transform:translateY(0)}}
+
+  </style>
+</head>
+<body>
+  <main class="hero" role="main">
+    <div class="overlay"></div>
+
+    <div class="brand">MAYI</div>
+
+    <div class="glow" aria-hidden="true"></div>
+
+    <!-- 居中可放置一句标语或空白以突出图片 -->
+    <section style="padding-top:18vh;padding-bottom:18vh;display:flex;align-items:center;justify-content:center;">
+      <div style="text-align:center;max-width:980px;padding:0 20px;">
+        <h1 style="margin:0;font-size: clamp(20px, 4vw, 44px);font-weight:700;letter-spacing:0.4px;color:var(--text);">Explore the future · Technology-driven imagination</h1>
+        <p style="margin:10px auto 0;max-width:760px;color:var(--muted);font-size:clamp(12px,1.8vw,16px);">MAYI's vision is to bring cutting-edge technology to everyone - simple, reliable and accessible.</p>
+      </div>
+    </section>
+
+    <footer class="contact" role="contentinfo">
+      <div class="card">
+        <div class="left">
+          <div class="label">Contact Us</div>
+          <div class="value">Email: <a href="mailto:wingssoftservice@outlook.com">wingssoftservice@outlook.com</a></div>
+        </div>
+        <div style="text-align:right;min-width:160px">
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
